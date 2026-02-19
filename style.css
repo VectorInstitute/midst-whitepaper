@@ -65,8 +65,8 @@ header {
 }
 
 .vector-logo {
-    height: 50px;
-    width: auto;
+    height: 80px;
+    max-width: 300px; 
 }
 
 .site-title {
