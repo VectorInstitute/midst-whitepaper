@@ -44,10 +44,8 @@
                 </div>
 
                 <p class="lead">
-                    This white paper evaluates the privacy risks of AI-generated synthetic tabular data by analyzing 
-                    the success of membership inference attacks (MIAs) under varying configurations and attacker profiles. 
-                    Building on the MIDST challenge, which revealed vulnerabilities in state-of-the-art diffusion models, 
-                    we identify key factors influencing privacy leakage and provide actionable guidance for practitioners.
+                    This white paper evaluates the privacy risks of AI-generated synthetic tabular data by analyzing the success of membership inference attacks (MIAs) under varying configurations and attacker profiles. 
+                    Building on the MIDST challenge, which revealed vulnerabilities in state-of-the-art diffusion models, we identify key factors influencing privacy leakage and provide actionable guidance for practitioners.
                 </p>
             </div>
         </section>
@@ -61,27 +59,21 @@
                         <h3>⚠️ The Problem</h3>
                         <p>
                             Synthetic data generation promises to preserve utility while eliminating privacy risks. 
-                            However, recent research reveals that generative models can leak information about specific 
-                            records used during training through membership inference attacks (MIAs).
+                            However, recent research reveals that generative models can leak information about specific records used during training through membership inference attacks (MIAs).
                         </p>
                     </div>
                     
                     <div class="challenge-card">
                         <h3>🎯 The MIDST Challenge</h3>
                         <p>
-                            The Membership Inference over Diffusion-models-based Synthetic Tabular data (MIDST) 
-                            challenge at IEEE SaTML 2025 systematically tested privacy vulnerabilities. Over 71 
-                            participants submitted 700+ attack strategies, revealing significant privacy leakage 
-                            across all scenarios.
+                            The Membership Inference over Diffusion-models-based Synthetic Tabular data (MIDST) challenge at IEEE SaTML 2025 systematically tested privacy vulnerabilities. Over 71 participants submitted 700+ attack strategies, revealing significant privacy leakage across all scenarios.
                         </p>
                     </div>
                     
                     <div class="challenge-card">
                         <h3>📊 The Results</h3>
                         <p>
-                            The winning white-box attack achieved a 46% success rate (4× better than random guessing). 
-                            Even black-box attacks with only synthetic outputs reached 25% success rates, demonstrating 
-                            that state-of-the-art diffusion models leak training data information.
+                            The winning white-box attack achieved a 46% success rate (4× better than random guessing). Even black-box attacks with only synthetic outputs reached 25% success rates, demonstrating that state-of-the-art diffusion models leak training data information.
                         </p>
                     </div>
                 </div>
@@ -95,64 +87,53 @@
                 <div class="finding">
                     <h3>1. Training Data Size Matters Most</h3>
                     <p>
-                        Larger training datasets substantially improve both privacy and utility. Data collection 
-                        is a more effective lever than oversynthesizing—increasing synthetic data relative to training 
-                        data degrades privacy, particularly for smaller training sets.
+                        Larger training datasets substantially improve both privacy and utility. Data collection is a more effective lever than oversynthesizing. Increasing synthetic data relative to training data degrades privacy, particularly for smaller training sets.
                     </p>
                     <div class="insight-box">
-                        <strong>Key Insight:</strong> Better privacy does not always imply worse utility. 
-                        Collecting more real training data improves both dimensions simultaneously.
+                        <strong>Key Insight:</strong> Better privacy does not always imply worse utility. Collecting more real training data improves both dimensions simultaneously.
                     </div>
                 </div>
 
                 <div class="finding">
                     <h3>2. Model Size vs. Privacy Tradeoffs</h3>
                     <p>
-                        Smaller or moderately sized models are often more privacy-efficient. Increasing model 
-                        capacity can amplify privacy leakage without meaningful gains in synthetic data quality.
+                        Smaller or moderately sized models are often more privacy-efficient. Increasing model capacity can amplify privacy leakage without meaningful gains in synthetic data quality.
                     </p>
-                    <div class="insight-box">
-                        <strong>Key Insight:</strong> Bigger models aren't always better for privacy-preserving 
-                        synthetic data generation.
-                    </div>
                 </div>
 
                 <div class="finding">
                     <h3>3. Hyperparameter Choices Present Clear Tradeoffs</h3>
                     <p>
-                        Increased diffusion steps and training iterations improve quality but increase vulnerability 
-                        to MIAs. These hyperparameters require careful tuning based on the specific use case and 
-                        acceptable risk thresholds.
+                        The sensitivty of attack success to different hyperparameters is varied and nuanced. Some have large impacts while others are surprisingly unimportant. For example, increased diffusion steps and training iterations improve quality but increase vulnerability to MIAs. These hyperparameters require careful tuning based on the specific use case and acceptable risk thresholds.
                     </p>
                 </div>
 
                 <div class="finding">
                     <h3>4. MIAs Work Even with Imperfect Knowledge</h3>
                     <p>
-                        MIAs remain highly effective even when attackers have imperfect knowledge of the data 
-                        distribution or model parameters. This demonstrates that MIAs provide a direct, 
-                        regulator-aligned measure of privacy risk.
+                        MIAs remain highly effective even when attackers have imperfect knowledge of the data distribution or model parameters. This demonstrates that MIAs provide a direct, regulator-aligned measure of privacy risk.
                     </p>
-                    <div class="insight-box">
-                        <strong>Key Insight:</strong> MIAs constitute an operationally meaningful assessment 
-                        of privacy leakage, unlike proxy metrics such as distance to closest record (DCR) which 
-                        fail to reliably capture privacy risk.
-                    </div>
+                </div>
+
+                <div class="finding">
+                    <h3>5. Distance to Closest Record (DCR) Fails as a Privacy Metric</h3>
+                    <p>
+                        DCR and similar proxy metrics fail to reliably estimate MIA success. While there are scenarios where DCR correlates MIAs remain highly effective even when attackers have imperfect knowledge of the data distribution or model parameters. This demonstrates that MIAs provide a direct, regulator-aligned measure of privacy risk.
+                    </p>
                 </div>
             </div>
         </section>
 
         <section id="takeaways" class="content-section gray-bg">
             <div class="container">
-                <h2>💡 Takeaways for Industry</h2>
+                <h2>💡 Industry Takeaways</h2>
                 
                 <div class="takeaway-grid">
                     <div class="takeaway-card">
                         <div class="number">1</div>
                         <h3>Prioritize Data Collection</h3>
                         <p>
-                            Investing in larger, high-quality training datasets delivers better privacy and 
-                            utility outcomes than attempting to compensate with excessive synthetic data generation.
+                            Investing in larger, high-quality training datasets delivers better privacy and utility outcomes than attempting to compensate with excessive synthetic data generation.
                         </p>
                     </div>
 
@@ -160,8 +141,7 @@
                         <div class="number">2</div>
                         <h3>Right-Size Your Models</h3>
                         <p>
-                            Don't default to the largest available model. Moderately sized models often provide 
-                            the best privacy-utility balance for synthetic data generation.
+                            Don't default to the largest available model. Moderately sized models often provide the best privacy-utility balance for synthetic data generation.
                         </p>
                     </div>
 
@@ -169,8 +149,7 @@
                         <div class="number">3</div>
                         <h3>Use MIAs for Assessment</h3>
                         <p>
-                            Adopt membership inference attacks as your primary privacy risk assessment tool. 
-                            They provide direct, operationally meaningful measures aligned with regulatory concerns.
+                            Adopt membership inference attacks as your primary privacy risk assessment tool. They provide direct, operationally meaningful measures aligned with regulatory concerns.
                         </p>
                     </div>
 
@@ -178,8 +157,7 @@
                         <div class="number">4</div>
                         <h3>Establish Defensible Thresholds</h3>
                         <p>
-                            Define acceptable privacy risk thresholds based on your specific use case, regulatory 
-                            environment, and data sensitivity—even in the absence of industry-wide frameworks.
+                            Define acceptable privacy risk thresholds based on your specific use case, regulatory environment, and data sensitivity—even in the absence of industry-wide frameworks.
                         </p>
                     </div>
 
@@ -187,8 +165,7 @@
                         <div class="number">5</div>
                         <h3>Beware of Proxy Metrics</h3>
                         <p>
-                            Distance to closest record (DCR) and similar metrics fail to reliably measure privacy 
-                            risk. Don't rely on proxies when direct MIA-based assessment is available.
+                            Distance to closest record (DCR) and similar metrics fail to reliably measure privacy risk. Don't rely on proxies when direct MIA-based assessment is available.
                         </p>
                     </div>
 
@@ -196,37 +173,9 @@
                         <div class="number">6</div>
                         <h3>Test Multiple Attack Scenarios</h3>
                         <p>
-                            Evaluate privacy under both white-box (full model access) and black-box (synthetic 
-                            outputs only) scenarios to understand your system's vulnerability profile.
+                            Evaluate privacy under both white-box (full model access) and black-box (synthetic outputs only) scenarios to understand your system's vulnerability profile.
                         </p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="conclusion" class="content-section">
-            <div class="container">
-                <h2>🎯 Conclusions</h2>
-                
-                <p class="conclusion-text">
-                    These findings provide organizations with concrete guidance for establishing defensible privacy 
-                    thresholds in synthetic data deployment. The key principles are clear:
-                </p>
-
-                <ul class="conclusion-list">
-                    <li><strong>Better privacy does not always imply worse utility</strong> — larger training datasets improve both</li>
-                    <li><strong>Smaller models can be more privacy-efficient</strong> — model size should be optimized, not maximized</li>
-                    <li><strong>MIAs provide operationally meaningful privacy assessment</strong> — they should be the primary evaluation metric</li>
-                    <li><strong>Privacy risk is quantifiable and manageable</strong> — with proper assessment frameworks and deployment practices</li>
-                </ul>
-
-                <div class="call-to-action">
-                    <h3>From Competition to Practice</h3>
-                    <p>
-                        This research builds on the MIDST Challenge to move beyond demonstrating vulnerabilities 
-                        and provide actionable guidance. Organizations can use these insights to understand when 
-                        synthetic data provides sufficient protection and which mitigation strategies are most effective.
-                    </p>
                 </div>
             </div>
         </section>
@@ -259,8 +208,8 @@
                     <div class="team-card team-card-wide">
                         <h3>Vector Institute</h3>
                         <p>
-                            Michael Joseph (Project Manager), Xi He (Faculty Advisor), 
                             Masoumeh Shafieinejad & David Emerson (Technical Leads), 
+                            Xi He (Faculty Advisor), Michael Joseph (Project Manager), 
                             Behnoosh Zamanlooy, Elaheh Bassak, Fatemeh Tavakoli, 
                             Sara Kodeiri, Marcelo Lotif (Research & Engineering)
                         </p>
@@ -292,11 +241,6 @@
         <div class="container">
             <p>Privacy Potions for Production</p>
             <p>White Paper • 2026</p>
-            <div class="footer-links">
-                <a href="#overview">Overview</a>
-                <a href="#key-findings">Findings</a>
-                <a href="#citation">Citation</a>
-            </div>
         </div>
     </footer>
 
