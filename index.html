@@ -66,14 +66,14 @@
                     <div class="challenge-card">
                         <h3>🎯 The MIDST Challenge</h3>
                         <p>
-                            The Membership Inference over Diffusion-models-based Synthetic Tabular data (MIDST) challenge at IEEE SaTML 2025 systematically tested privacy vulnerabilities. Over 71 participants submitted 700+ attack strategies, revealing significant privacy leakage across all scenarios.
+                            The <a href="https://vectorinstitute.github.io/MIDST/" target="_blank" rel="noopener noreferrer">Membership Inference over Diffusion-models-based Synthetic Tabular data (MIDST) challenge</a> at IEEE SaTML 2025 systematically tested privacy vulnerabilities. Over 71 participants submitted 700+ attack strategies, revealing significant privacy leakage across all scenarios.
                         </p>
                     </div>
                     
                     <div class="challenge-card">
                         <h3>📊 The Results</h3>
                         <p>
-                            The winning white-box attack achieved a 46% success rate (4× better than random guessing). Even black-box attacks with only synthetic outputs reached 25% success rates, demonstrating that state-of-the-art diffusion models leak training data information.
+                            The winning white-box attack achieved a 46% true positive rate at a 10% false positive rate—more than four times better than random guessing under the same metric. Even black-box attacks with only synthetic outputs reached 25% success rates, demonstrating that state-of-the-art diffusion models leak training data information.
                         </p>
                     </div>
                 </div>
@@ -89,9 +89,6 @@
                     <p>
                         Larger training datasets substantially improve both privacy and utility. Data collection is a more effective lever than oversynthesizing. Increasing synthetic data relative to training data degrades privacy, particularly for smaller training sets.
                     </p>
-                    <div class="insight-box">
-                        <strong>Key Insight:</strong> Better privacy does not always imply worse utility. Collecting more real training data improves both dimensions simultaneously.
-                    </div>
                 </div>
 
                 <div class="finding">
@@ -104,7 +101,7 @@
                 <div class="finding">
                     <h3>3. Hyperparameter Choices Present Clear Tradeoffs</h3>
                     <p>
-                        The sensitivty of attack success to different hyperparameters is varied and nuanced. Some have large impacts while others are surprisingly unimportant. For example, increased diffusion steps and training iterations improve quality but increase vulnerability to MIAs. These hyperparameters require careful tuning based on the specific use case and acceptable risk thresholds.
+                        The sensitivity of attack success to different hyperparameters is varied and nuanced. Some have large impacts while others are surprisingly unimportant. For example, increased diffusion steps and training iterations improve quality up to a point but increase vulnerability to MIAs. These hyperparameters require careful tuning based on the specific use case and acceptable risk thresholds.
                     </p>
                 </div>
 
@@ -118,8 +115,7 @@
                 <div class="finding">
                     <h3>5. Distance to Closest Record (DCR) Fails as a Privacy Metric</h3>
                     <p>
-                        DCR and similar proxy metrics fail to reliably estimate MIA success. While there are scenarios where DCR correlates MIAs remain highly effective even when attackers have imperfect knowledge of the data distribution or model parameters. This demonstrates that MIAs provide a direct, regulator-aligned measure of privacy risk.
-                    </p>
+                        DCR and similar proxy metrics fail to reliably estimate MIA success. While DCR is easy to compute and widely used, experiments show it does not track MIA outcomes across key levers such as model size, batch size, and diffusion steps. In these scenarios, MIA success changes significantly while DCR remains largely flat. DCR cannot be relied upon as a standalone privacy metric, particularly in high-stakes or regulated settings.
                 </div>
             </div>
         </section>
@@ -133,7 +129,7 @@
                         <div class="number">1</div>
                         <h3>Prioritize Data Collection</h3>
                         <p>
-                            Investing in larger, high-quality training datasets delivers better privacy and utility outcomes than attempting to compensate with excessive synthetic data generation.
+                            Investing in larger, high-quality training datasets delivers better privacy and utility outcomes than attempting to compensate with excessive synthetic data generation. Conversely, generating synthetic data well in excess of your training set size, particularly with small training datasets, significantly increases privacy leakage without proportional quality gains.
                         </p>
                     </div>
 
@@ -149,7 +145,7 @@
                         <div class="number">3</div>
                         <h3>Use MIAs for Assessment</h3>
                         <p>
-                            Adopt membership inference attacks as your primary privacy risk assessment tool. They provide direct, operationally meaningful measures aligned with regulatory concerns.
+                            Adopt MIAs as your primary privacy risk assessment tool. They provide direct, operationally meaningful measures aligned with regulatory concerns.
                         </p>
                     </div>
 
@@ -157,7 +153,7 @@
                         <div class="number">4</div>
                         <h3>Establish Defensible Thresholds</h3>
                         <p>
-                            Define acceptable privacy risk thresholds based on your specific use case, regulatory environment, and data sensitivity—even in the absence of industry-wide frameworks.
+                            Define acceptable privacy risk thresholds based on your specific use case, regulatory environment, and data sensitivity, even in the absence of industry-wide frameworks.
                         </p>
                     </div>
 
@@ -165,7 +161,7 @@
                         <div class="number">5</div>
                         <h3>Beware of Proxy Metrics</h3>
                         <p>
-                            Distance to closest record (DCR) and similar metrics fail to reliably measure privacy risk. Don't rely on proxies when direct MIA-based assessment is available.
+                            DCR and similar proxy metrics fail to reliably measure privacy risk. Don't rely on proxies when direct MIA-based assessment is available.
                         </p>
                     </div>
 
