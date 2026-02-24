@@ -71,9 +71,9 @@
                     </div>
                     
                     <div class="challenge-card">
-                        <h3>📊 The Results</h3>
+                        <h3>📊 MIDST Challenge Results</h3>
                         <p>
-                            The winning white-box attack achieved a 46% true positive rate at a 10% false positive rate—more than four times better than random guessing under the same metric. Even black-box attacks with only synthetic outputs reached 25% success rates, demonstrating that state-of-the-art diffusion models leak training data information.
+                            The winning white-box attack achieved a 46% true positive rate at a 10% false positive rate, more than four times better than a random baseline under the same metric. Even black-box attacks with only synthetic outputs reached 25% success rates, demonstrating that state-of-the-art diffusion models leak training data information.
                         </p>
                     </div>
                 </div>
@@ -108,14 +108,14 @@
                 <div class="finding">
                     <h3>4. MIAs Work Even with Imperfect Knowledge</h3>
                     <p>
-                        MIAs remain highly effective even when attackers have imperfect knowledge of the data distribution or model parameters. This demonstrates that MIAs provide a direct, regulator-aligned measure of privacy risk.
+                        Traditionally, it is assumed that attackers have access to statistically identical data and knowledge of training parameters. However, experimental results demonstrate that state-of-the-art MIAs remain highly effective even when attackers have imperfect knowledge of the training data distribution, hyperparameters, and model architectures. This demonstrates that MIAs provide a direct, regulator-aligned measure of privacy risk.
                     </p>
                 </div>
 
                 <div class="finding">
                     <h3>5. Distance to Closest Record (DCR) Fails as a Privacy Metric</h3>
                     <p>
-                        DCR and similar proxy metrics fail to reliably estimate MIA success. While DCR is easy to compute and widely used, experiments show it does not track MIA outcomes across key levers such as model size, batch size, and diffusion steps. In these scenarios, MIA success changes significantly while DCR remains largely flat. DCR cannot be relied upon as a standalone privacy metric, particularly in high-stakes or regulated settings.
+                        DCR and similar proxy metrics fail to reliably estimate MIA success. While DCR is easy to compute and widely used, experiments show that it does not correlate with MIA outcomes across key levers such as model size, batch size, and diffusion steps, among others. In these scenarios, MIA success changes significantly while DCR remains largely flat. As such, DCR cannot be relied upon as a standalone privacy metric, particularly in high-stakes or regulated settings.
                 </div>
             </div>
         </section>
@@ -129,7 +129,7 @@
                         <div class="number">1</div>
                         <h3>Prioritize Data Collection</h3>
                         <p>
-                            Investing in larger, high-quality training datasets delivers better privacy and utility outcomes than attempting to compensate with excessive synthetic data generation. Conversely, generating synthetic data well in excess of your training set size, particularly with small training datasets, significantly increases privacy leakage without proportional quality gains.
+                            Investing in larger, high-quality training datasets delivers better privacy and utility outcomes than attempting to compensate with excessive synthetic data generation. Generating synthetic data well in excess of your training set size, particularly with small training datasets, significantly increases privacy leakage without proportional quality gains.
                         </p>
                     </div>
 
@@ -161,7 +161,7 @@
                         <div class="number">5</div>
                         <h3>Beware of Proxy Metrics</h3>
                         <p>
-                            DCR and similar proxy metrics fail to reliably measure privacy risk. Don't rely on proxies when direct MIA-based assessment is available.
+                            DCR and similar proxy metrics fail to reliably measure privacy risk and possess notable blind spots compared to MIA-based assessments. Don't rely on proxies when direct MIA-based assessment is available.
                         </p>
                     </div>
 
@@ -169,7 +169,7 @@
                         <div class="number">6</div>
                         <h3>Test Multiple Attack Scenarios</h3>
                         <p>
-                            Evaluate privacy under both white-box (full model access) and black-box (synthetic outputs only) scenarios to understand your system's vulnerability profile.
+                            Evaluate privacy under both white-box (full model access) and black-box (synthetic outputs only) scenarios to understand your system's vulnerability profile from different perspectives.
                         </p>
                     </div>
                 </div>
